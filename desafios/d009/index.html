@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajustar salário</title>
+    <style>
+        body { font: 12pt Arial; }
+        button { font-size: 12pt; padding: 20px;}
+    </style>
+</head>
+<body>
+    <h1>Reajuste salarial</h1>
+    <button onclick="pergunta()">Reajustar Salário</button>
+    <section id="res">
+        <p>Clique no botão acima para iniciar.</p>
+    </section>
+    <script>
+        function pergunta() {
+            let nome = window.prompt('Qual é o nome do funcionário?')
+            let salário = Number(window.prompt(`Qual é o salário de ${nome}?`)).toFixed(2)
+            let reajuste = Number(window.prompt(`O salário ${nome} vai ser reajustado em qual porcentagem?`))
+            let aumento = (salário*(reajuste/100)).toFixed(2)
+            let novo_salário = salário + aumento
+            let res = document.querySelector('section#res')
+            res.innerHTML = `<h2>${nome} recebeu um aumento salarial!</h2>`
+            res.innerHTML += `<p>O salário atual era R$${salário.replace('.', ',')}.</p>`
+            res.innerHTML += `<p>Com um aumento de ${reajuste}%, o salário vai aumentar R$${aumento.replace('.', ',')} no próximo mês.</p>`
+            res.innerHTML += `<p>E a partir daí, ${nome} vai passar a ganhar R$${novo_salário.replace('.', ',')}`
+        }
+    </script>
+</body>
+</html>
