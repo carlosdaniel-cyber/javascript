@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórmula de Delta</title>
+    <style>
+        body { font-family: Arial; }
+        button { padding: 20px; font-size: 12pt;}
+    </style>
+</head>
+<body>
+    <h1>Resolvendo Delta</h1>
+    <button onclick="delta()">Calcular</button>
+    <section id="res">
+        <p>Considerando uma equação no formato <em><strong>ax<sup>2</sup> + bx + c = 0</strong></em>, aperte o botão acima para calcular o valor de &Delta;.</p>
+    </section>
+
+    <script>
+        function delta() {
+            let a = Number(prompt('Qual é o valor de a?'))
+            let b = Number(prompt('Qual é o valor de b?'))
+            let c = Number(prompt('Qual é o valor de c?'))
+            let delta = (b**2 - 4*a*c)
+            let res = document.querySelector('section#res')
+            res.innerHTML = `<p>A equação atual é <strong>${a}x<sup>2</sup> + ${b}x + ${c} = 0</strong></p>`
+            res.innerHTML += `<p>O cálculo realizado será <strong>&Delta; = ${b}<sup>2</sup> - 4 . ${a} . ${c}</p>`
+            res.innerHTML += `<p>O valor calculado foi <mark><strong>&Delta; = ${delta}</strong></mark>`
+        }
+    </script>
+</body>
+</html>
